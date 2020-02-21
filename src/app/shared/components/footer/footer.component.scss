@@ -1,0 +1,7 @@
+@import "../../../../assets/styles/helpers/variables";
+
+footer {
+  height: $footer-height;
+  // background-image: linear-gradient(to right, #274046 0%, #e6dada 50%, #274046 100%);
+  background-color: $footer-background-color;
+}

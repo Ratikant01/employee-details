@@ -1,0 +1,35 @@
+{
+  "timestamp": "2020-02-25T11:07:26.107Z",
+  "data": [
+    {
+      "employeeId": "E01",
+      "firstName": "FN01",
+      "lastName": "LN01",
+      "email": "test.email01@domain.com"
+    },
+    {
+      "employeeId": "E02",
+      "firstName": "FN02",
+      "lastName": "LN02",
+      "email": "test.email01@domain.com"
+    },
+    {
+      "employeeId": "E03",
+      "firstName": "FN03",
+      "lastName": "LN03",
+      "email": "test.email03@domain.com"
+    },
+    {
+      "employeeId": "E04",
+      "firstName": "FN04",
+      "lastName": "LN04",
+      "email": "test.email04@domain.com"
+    },
+    {
+      "employeeId": "E05",
+      "firstName": "FN05",
+      "lastName": "LN05",
+      "email": "test.email05@domain.com"
+    }
+  ]
+}

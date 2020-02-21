@@ -3,7 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: '/mocks',
+  serviceUrls: {
+    login: '/user.json',
+    logout: '/user.json',
+    employeeList: '/employee-list.json',
+    employeeDetails: '/employee-details.json'
+  }
 };
 
 /*
