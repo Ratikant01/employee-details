@@ -14,7 +14,7 @@ const routes: Routes = [
     canActivate: [UserAuthGuard]
   },
   {
-    path: 'employee-details',
+    path: 'employee-details/:id',
     loadChildren: () => import('./modules/employee-details/employee-details.module').then(mod => mod.EmployeeDetailsModule),
     canActivate: [UserAuthGuard]
   },

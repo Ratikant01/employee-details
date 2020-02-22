@@ -1,1 +1,45 @@
-<p>user-login works!</p>
+<div class="user-login">
+  <form #loginForm="ngForm">
+    <div class="row mt-5">
+      <div class="col-10 offset-1">
+        <div class="form-row">
+          <div class="col-12 mt-5 mb-5">
+            <span [style.font-size.em]="'2'"><i class="fa fa-user mr-4" aria-hidden="true"></i>Login</span>
+          </div>
+          <div class="col-12">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></span>
+              </div>
+              <input type="text" id="username" name="username" class="form-control"
+                     placeholder="Username"
+                     maxlength="255" [(ngModel)]="userModel.username"
+                     required autofocus>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col-12">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></span>
+              </div>
+              <input type="password" id="password" name="password" class="form-control"
+                     placeholder="Password"
+                     [(ngModel)]="userModel.password" required>
+            </div>
+          </div>
+        </div>
+        <div class="form-row mt-4">
+          <div class="col-12">
+            <button type="button" class="btn btn-info"
+                    [style.cursor]="loginForm.form.invalid ? 'not-allowed !important' : ''"
+                    [disabled]="loginForm.form.invalid" (click)="login()">
+              <i class="fa fa-sign-in mr-2" aria-hidden="true"></i>Login
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

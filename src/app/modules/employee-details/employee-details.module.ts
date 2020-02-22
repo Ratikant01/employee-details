@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {EmployeeDetailsRoutingModule} from './employee-details-routing.module';
 import {EmployeeDetailsComponent} from './employee-details.component';
@@ -8,6 +9,8 @@ import {EmployeeDetailsComponent} from './employee-details.component';
   declarations: [EmployeeDetailsComponent],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     EmployeeDetailsRoutingModule
   ]
 })

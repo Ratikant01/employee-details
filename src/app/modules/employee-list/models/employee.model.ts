@@ -1,5 +1,6 @@
 export interface Employee {
-  username: string;
+  employeeId: string;
+  firstName: string;
+  lastName: string;
   email: string;
-  token?: string;
 }
