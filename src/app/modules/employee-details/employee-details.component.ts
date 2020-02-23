@@ -18,6 +18,7 @@ export class EmployeeDetailsComponent implements OnInit, OnDestroy {
   private destroyed$ = new Subject();
   employeeId: string;
   employee: Employee = {} as Employee;
+  today = new Date();
 
   constructor(private route: ActivatedRoute, private router: Router, private titleService: Title,
               private employeeDetailsService: EmployeeDetailsService) {
