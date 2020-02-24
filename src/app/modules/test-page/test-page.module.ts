@@ -1,10 +1,11 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 
+import {SharedModule} from '../../shared/shared.module';
 import {TestPageRoutingModule} from './test-page-routing.module';
 import {TestPageComponent} from './test-page.component';
 import {TestChildComponent} from './components/test-child/test-child.component';
-import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,8 +14,9 @@ import {FormsModule} from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    TestPageRoutingModule,
-    FormsModule
+    FormsModule,
+    SharedModule,
+    TestPageRoutingModule
   ]
 })
 export class TestPageModule {

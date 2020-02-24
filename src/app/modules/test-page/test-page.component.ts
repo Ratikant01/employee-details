@@ -9,6 +9,7 @@ export class TestPageComponent implements OnInit {
 
   title: string;
   color: string;
+  today = new Date();
 
   constructor() {
   }

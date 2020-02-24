@@ -50,21 +50,4 @@
       </div>
     </form>
   </div>
-  <div class="col-5 mt-5" style="border-left: 2px solid black">
-    <div class="mb-2">
-      <span [style.font-size.em]="'2'"><i class="fa fa-bug mr-4" aria-hidden="true"></i>Testing...</span>
-    </div>
-    <div class="mb-2">
-      <span><b>Today's date: </b>{{today}}</span>
-    </div>
-    <div class="mb-2">
-      <span><b>Parameterized Pipe (today | date:'yyyy-mm-dd'):</b> {{today | date:'yyyy-mm-dd'}}</span>
-    </div>
-    <div class="mb-2">
-      <span><b>Chaining Pipe: </b>{{today | date | uppercase}}</span>
-    </div>
-    <div class="mb-2">
-      <span><b>Custom Pipe: </b>{{'this is a test string' | reverseString}}</span>
-    </div>
-  </div>
 </div>

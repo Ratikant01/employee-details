@@ -1,26 +1,35 @@
 <div class="row">
   <div class="col-8 offset-2">
     <div class="row">
-      <div class="col-12">
-        <h4>String Interpolation</h4>
-        <h5>The page title is: {{title}}</h5>
+      <div class="col-12 mt-4">
+        <span><b>String Interpolation</b></span><br>
+        <span>The page title is: {{12+2}}</span>
       </div>
       <div class="col-12 mt-4">
-        <h4>Property Binding (make this field background color by color entered)</h4>
+        <span><b>Two-way Binding</b></span><br>
+        <input type="text" [(ngModel)]="title"><br>
+        <span>The page title after the change is: {{title}}</span>
+      </div>
+      <div class="col-12 mt-4">
+        <span><b>Property Binding (make this field background color by color entered)</b></span><br>
         <input type="text" [(ngModel)]="color" [style.background-color]="color">
-        <h5>The page title after the change is: {{title}}</h5>
       </div>
       <div class="col-12 mt-4">
-        <h4>Event Binding</h4>
+        <span><b>Event Binding</b></span><br>
         <input type="text" [(ngModel)]="title">
-        <div class="mt-2">
-          <button class="btn btn-info" (click)="alertTitle()">Alert title</button>
-        </div>
+        <button class="btn btn-info ml-2 btn-sm" (click)="alertTitle()">Alert title</button>
       </div>
       <div class="col-12 mt-4">
-        <h4>Two-way Binding</h4>
-        <input type="text" [(ngModel)]="title">
-        <h5>The page title after the change is: {{title}}</h5>
+        <span><b>Today's date: </b>{{today}}</span>
+      </div>
+      <div class="col-12 mt-4">
+        <span><b>Parameterized Pipe (today | date:'yyyy-mm-dd'):</b> {{today | date:'yyyy-mm-dd'}}</span>
+      </div>
+      <div class="col-12 mt-4">
+        <span><b>Chaining Pipe: </b>{{today | date | uppercase}}</span>
+      </div>
+      <div class="col-12 mt-4">
+        <span><b>Custom Pipe: </b>{{'example of custom pipe' | reverseString}}</span>
       </div>
     </div>
   </div>
