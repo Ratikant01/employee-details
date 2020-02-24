@@ -1,53 +1,70 @@
-<div class="employee-details">
-  <span>Today's date: {{today}}</span>
-  <span>Today's date: {{today | date:'yyyy-mm-dd'}}</span>
-  <form #employeeDetailsForm="ngForm">
-    <div class="row mt-5">
-      <div class="col-10 offset-1">
-        <div class="form-row">
-          <div class="col-12 mt-5 mb-5">
-            <span [style.font-size.em]="'2'"><i class="fa fa-user mr-4" aria-hidden="true"></i>Employee Details</span>
+<div class="employee-details row">
+  <div class="col-6">
+    <form #employeeDetailsForm="ngForm">
+      <div class="row mt-1">
+        <div class="col-12">
+          <div class="form-row">
+            <div class="col-12 mt-5 mb-5">
+              <span [style.font-size.em]="'2'"><i class="fa fa-user mr-4" aria-hidden="true"></i>Employee Details</span>
+            </div>
+            <div class="form-group col-12">
+              <label for="employeeId">Employee ID:</label>
+              <input type="text" id="employeeId" name="employeeId" class="form-control"
+                     placeholder="Employee ID" [(ngModel)]="employee.employeeId"
+                     maxlength="255" readonly>
+            </div>
+            <div class="form-group col-12">
+              <label for="firstName">First Name:</label>
+              <input type="text" id="firstName" name="firstName" class="form-control"
+                     placeholder="First Name" [(ngModel)]="employee.firstName"
+                     maxlength="255" required>
+            </div>
+            <div class="form-group col-12">
+              <label for="lastName">Last Name:</label>
+              <input type="text" id="lastName" name="lastName" class="form-control"
+                     placeholder="Last Name" [(ngModel)]="employee.lastName"
+                     maxlength="255" required>
+            </div>
+            <div class="form-group col-12">
+              <label for="email">Email:</label>
+              <input type="text" id="email" name="email" class="form-control"
+                     placeholder="Email" [(ngModel)]="employee.email"
+                     maxlength="255" required>
+            </div>
           </div>
-          <div class="form-group col-12">
-            <label for="employeeId">Employee ID:</label>
-            <input type="text" id="employeeId" name="employeeId" class="form-control"
-                   placeholder="Employee ID" [(ngModel)]="employee.employeeId"
-                   maxlength="255" readonly>
-          </div>
-          <div class="form-group col-12">
-            <label for="firstName">First Name:</label>
-            <input type="text" id="firstName" name="firstName" class="form-control"
-                   placeholder="First Name" [(ngModel)]="employee.firstName"
-                   maxlength="255" required>
-          </div>
-          <div class="form-group col-12">
-            <label for="lastName">Last Name:</label>
-            <input type="text" id="lastName" name="lastName" class="form-control"
-                   placeholder="Last Name" [(ngModel)]="employee.lastName"
-                   maxlength="255" required>
-          </div>
-          <div class="form-group col-12">
-            <label for="email">Email:</label>
-            <input type="text" id="email" name="email" class="form-control"
-                   placeholder="Email" [(ngModel)]="employee.email"
-                   maxlength="255" required>
-          </div>
-        </div>
-        <div class="form-row mt-4">
-          <div class="col-6">
-            <button type="button" class="btn btn-danger" (click)="goToEmployeeListPage()">
-              <i class="fa fa-close mr-2" aria-hidden="true"></i>Cancel
-            </button>
-          </div>
-          <div class="col-6">
-            <button type="button" class="btn btn-info"
-                    [style.cursor]="employeeDetailsForm.form.invalid ? 'not-allowed !important' : ''"
-                    [disabled]="employeeDetailsForm.form.invalid" (click)="saveAndGoToEmployeeListPage()">
-              <i class="fa fa-save mr-2" aria-hidden="true"></i>Save
-            </button>
+          <div class="form-row mt-4">
+            <div class="col-6">
+              <button type="button" class="btn btn-danger" (click)="goToEmployeeListPage()">
+                <i class="fa fa-close mr-2" aria-hidden="true"></i>Cancel
+              </button>
+            </div>
+            <div class="col-6">
+              <button type="button" class="btn btn-info"
+                      [style.cursor]="employeeDetailsForm.form.invalid ? 'not-allowed !important' : ''"
+                      [disabled]="employeeDetailsForm.form.invalid" (click)="saveAndGoToEmployeeListPage()">
+                <i class="fa fa-save mr-2" aria-hidden="true"></i>Save
+              </button>
+            </div>
           </div>
         </div>
       </div>
+    </form>
+  </div>
+  <div class="col-5 mt-5" style="border-left: 2px solid black">
+    <div class="mb-2">
+      <span [style.font-size.em]="'2'"><i class="fa fa-bug mr-4" aria-hidden="true"></i>Testing...</span>
     </div>
-  </form>
+    <div class="mb-2">
+      <span><b>Today's date: </b>{{today}}</span>
+    </div>
+    <div class="mb-2">
+      <span><b>Parameterized Pipe (today | date:'yyyy-mm-dd'):</b> {{today | date:'yyyy-mm-dd'}}</span>
+    </div>
+    <div class="mb-2">
+      <span><b>Chaining Pipe: </b>{{today | date | uppercase}}</span>
+    </div>
+    <div class="mb-2">
+      <span><b>Custom Pipe: </b>{{'this is a test string' | reverseString}}</span>
+    </div>
+  </div>
 </div>

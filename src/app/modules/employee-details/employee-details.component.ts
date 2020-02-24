@@ -25,7 +25,6 @@ export class EmployeeDetailsComponent implements OnInit, OnDestroy {
     // Set page title
     this.titleService.setTitle(PAGE_TITLE.employeeDetails);
     this.employeeId = this.route.snapshot.paramMap.get('id');
-    console.log('this.employeeId: ' + this.employeeId);
   }
 
 

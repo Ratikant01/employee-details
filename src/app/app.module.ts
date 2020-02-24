@@ -7,6 +7,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ErrorInterceptor} from './core/interceptors/error.interceptor';
 import {UserAuthGuard} from './core/guards/user-auth.guard';
 import {RestClientService} from './core/services/rest-client.service';
+import {SharedModule} from './shared/shared.module';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './shared/components/header/header.component';
@@ -24,6 +25,7 @@ import {FooterComponent} from './shared/components/footer/footer.component';
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule.forRoot(),
     AppRoutingModule
   ],
   providers: [
@@ -35,6 +37,7 @@ import {FooterComponent} from './shared/components/footer/footer.component';
     RestClientService,
     UserAuthGuard
   ],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
