@@ -11,16 +11,12 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './shared/components/header/header.component';
 import {FooterComponent} from './shared/components/footer/footer.component';
-import { TitleCasePipe } from './core/pipes/title-case.pipe';
-import { TitleCaseDirective } from './core/directives/title-case.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
-    TitleCasePipe,
-    TitleCaseDirective
+    FooterComponent
   ],
   imports: [
     BrowserModule,

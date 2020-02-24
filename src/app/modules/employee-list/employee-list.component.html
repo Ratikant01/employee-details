@@ -15,13 +15,16 @@
         <tr *ngIf="employees.length === 0">
           <td colspan="5">No records.</td>
         </tr>
-        <tr *ngFor="let employee of employees">
+        <tr *ngFor="let employee of employees; let rowIndex = index"
+            [ngClass]="{'alternate-row': rowIndex % 2 === 0}"
+            [ngStyle]="{'font-style': rowIndex % 2 === 0 ? 'italic' : 'normal'}">
           <td>{{employee.employeeId}}</td>
           <td>{{employee.firstName}}</td>
           <td>{{employee.lastName}}</td>
           <td>{{employee.email}}</td>
           <td>
-            <a routerLink="/employee-details/{{employee.employeeId}}" type="button" class="btn btn-info btn-sm" style="color: aliceblue">View</a>
+            <a routerLink="/employee-details/{{employee.employeeId}}"
+               type="button" class="btn btn-info btn-sm" style="color: aliceblue">View</a>
           </td>
         </tr>
         </tbody>

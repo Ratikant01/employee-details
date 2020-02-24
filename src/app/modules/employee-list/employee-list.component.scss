@@ -1,1 +1,12 @@
 @import "../../../assets/styles/helpers/variables";
+
+table {
+  border: 1px solid darkgray;
+  thead {
+    background-color: darkgray;
+  }
+}
+
+.alternate-row {
+  background-color: antiquewhite;
+}
