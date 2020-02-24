@@ -5,6 +5,10 @@ import {UserAuthGuard} from './core/guards/user-auth.guard';
 
 const routes: Routes = [
   {
+    path: 'test',
+    loadChildren: () => import('./modules/test-page/test-page.module').then(mod => mod.TestPageModule),
+  },
+  {
     path: 'login',
     loadChildren: () => import('./modules/user-login/user-login.module').then(mod => mod.UserLoginModule),
   },
@@ -25,7 +29,8 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'employee-list'
+    // redirectTo: 'employee-list'
+    redirectTo: 'test'
   },
   {
     path: '**',

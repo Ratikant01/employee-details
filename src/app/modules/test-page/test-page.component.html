@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-8 offset-2">
+    <div class="row">
+      <div class="col-12">
+        <h4>String Interpolation</h4>
+        <h5>The page title is: {{title}}</h5>
+      </div>
+      <div class="col-12 mt-4">
+        <h4>Property Binding (make this field background color by color entered)</h4>
+        <input type="text" [(ngModel)]="color" [style.background-color]="color">
+        <h5>The page title after the change is: {{title}}</h5>
+      </div>
+      <div class="col-12 mt-4">
+        <h4>Event Binding</h4>
+        <input type="text" [(ngModel)]="title">
+        <div class="mt-2">
+          <button class="btn btn-info" (click)="alertTitle()">Alert title</button>
+        </div>
+      </div>
+      <div class="col-12 mt-4">
+        <h4>Two-way Binding</h4>
+        <input type="text" [(ngModel)]="title">
+        <h5>The page title after the change is: {{title}}</h5>
+      </div>
+    </div>
+  </div>
+</div>

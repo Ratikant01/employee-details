@@ -29,13 +29,13 @@ export class EmployeeDetailsComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-    this.getEmployees();
+    this.getEmployee();
   }
 
   /**
    * Get employee list
    */
-  getEmployees(): void {
+  getEmployee(): void {
     this.employeeDetailsService.getEmployee(this.employeeId).pipe(
       takeUntil(this.destroyed$)
     ).subscribe(response => {
