@@ -7,7 +7,7 @@ import {takeUntil} from 'rxjs/operators';
 import PAGE_TITLE from '../../config/page-title.json';
 import {EmployeeDetailsService} from './services/employee-details.service';
 import {Employee} from '../employee-list/models/employee.model';
-import { FormBuilder, FormControl, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
+import {FormBuilder, FormControl, Validators, ValidatorFn, AbstractControl} from '@angular/forms';
 
 @Component({
   selector: 'app-employee-details',
@@ -18,15 +18,16 @@ export class EmployeeDetailsComponent implements OnInit, OnDestroy {
 
   private destroyed$ = new Subject();
   employeeId: string;
-  employee: Employee = {} as Employee;  
+  employee: Employee = {} as Employee;
 
   employeeDetailsForm = this.formBuilder.group({
     employeeId: new FormControl(''),
     firstName: new FormControl('', [Validators.required, Validators.minLength(2)]),
     lastName: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email, this.emailDomainValidator('domain.com')])
+    email: new FormControl('', [Validators.required, Validators.email,
+      this.emailDomainValidator('domain.com')])
   });
-  
+
   constructor(private route: ActivatedRoute, private router: Router, private titleService: Title,
               private employeeDetailsService: EmployeeDetailsService, private formBuilder: FormBuilder) {
     // Set page title
@@ -46,13 +47,13 @@ export class EmployeeDetailsComponent implements OnInit, OnDestroy {
       takeUntil(this.destroyed$)
     ).subscribe(response => {
       this.employee = response;
-      if(this.employee){
-        this.employeeDetailsForm.patchValue({  
-          firstName: this.employee.firstName,  
-          lastName:this.employee.lastName,  
+      if (this.employee) {
+        this.employeeDetailsForm.patchValue({
+          firstName: this.employee.firstName,
+          lastName: this.employee.lastName,
           email: this.employee.email,
           employeeId: this.employee.employeeId
-        }); 
+        });
       }
     }, error => {
       // Handle error properly
@@ -73,7 +74,7 @@ export class EmployeeDetailsComponent implements OnInit, OnDestroy {
       if (control.value !== null) {
         const [_, eDomain] = control.value.split('@'); // split the email address to get the domain name
         return eDomain !== domain // check if the domain name matches the one inside the email address
-          ? { emailDomain: true } // return in case there is not match
+          ? {emailDomain: true} // return in case there is not match
           : null; // return null if there is a match
       }
       return null; // no error, since there was no input
