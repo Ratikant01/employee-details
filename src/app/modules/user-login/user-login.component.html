@@ -1,4 +1,4 @@
-<div class="user-login">
+ <div class="user-login">
   <form #loginForm="ngForm">
     <div class="row mt-5">
       <div class="col-10 offset-1">
@@ -12,9 +12,11 @@
                 <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></span>
               </div>
               <input type="text" id="username" name="username" class="form-control"
-                     placeholder="Username" maxlength="255" [(ngModel)]="userModel.username"
-                     required appAutoFocus>
-            </div>
+                     placeholder="Username"
+                     maxlength="255" [(ngModel)]="userModel.username"
+                     required autofocus  #username="ngModel">   
+            </div>               
+            <p [hidden]="username.valid || username.pristine" class="dangerClass">* Username is required</p>
           </div>
         </div>
         <div class="form-row">
@@ -24,8 +26,10 @@
                 <span class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></span>
               </div>
               <input type="password" id="password" name="password" class="form-control"
-                     placeholder="Password" [(ngModel)]="userModel.password" required>
-            </div>
+                     placeholder="Password"
+                     [(ngModel)]="userModel.password" required  #password="ngModel">     
+            </div>                         
+            <div [hidden]="password.valid || password.pristine" class="dangerClass">* Password is required</div>
           </div>
         </div>
         <div class="form-row mt-4">
