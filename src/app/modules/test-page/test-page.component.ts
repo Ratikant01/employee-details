@@ -10,6 +10,7 @@ export class TestPageComponent implements OnInit {
   title: string;
   color: string;
   today = new Date();
+  clickCounter: number;
 
   constructor() {
   }
@@ -17,6 +18,7 @@ export class TestPageComponent implements OnInit {
   ngOnInit(): void {
     this.title = 'Test Title';
     this.color = 'white';
+    this.clickCounter = 0;
   }
 
   alertTitle() {

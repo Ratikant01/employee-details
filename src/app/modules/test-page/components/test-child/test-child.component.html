@@ -1,1 +1,14 @@
-<p>test-child works!</p>
+<div class="row">
+  <div class="col-12">
+    <span><b>This is from TestChildComponent</b></span>
+  </div>
+  <div class="col-12">
+    <span><b>@Input Example:</b></span>
+    <span>The input title is: {{title}}</span>
+  </div>
+  <div class="col-12">
+    <span><b>@Output Example:</b></span><br>
+    <button class="btn btn-info btn-sm" (click)="increaseClickCounter()">Click me</button><br>
+    <span>You have clicked <span class="text-danger"><b>{{clickCounter}}</b></span> times.</span>
+  </div>
+</div>
