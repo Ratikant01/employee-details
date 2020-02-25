@@ -7,7 +7,7 @@ import {takeUntil} from 'rxjs/operators';
 import PAGE_TITLE from '../../config/page-title.json';
 import {EmployeeDetailsService} from './services/employee-details.service';
 import {Employee} from '../employee-list/models/employee.model';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-employee-details',
@@ -24,7 +24,7 @@ export class EmployeeDetailsComponent implements OnInit, OnDestroy {
     employeeId: new FormControl(''),
     firstName: new FormControl('', [Validators.required, Validators.minLength(2)]),
     lastName: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email])
+    email: new FormControl('', [Validators.required, Validators.email, this.emailDomainValidator('domain.com')])
   });
   
   constructor(private route: ActivatedRoute, private router: Router, private titleService: Title,
@@ -66,6 +66,18 @@ export class EmployeeDetailsComponent implements OnInit, OnDestroy {
 
   saveAndGoToEmployeeListPage() {
     this.router.navigateByUrl('/employee-list').then();
+  }
+
+  emailDomainValidator(domain: string): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      if (control.value !== null) {
+        const [_, eDomain] = control.value.split('@'); // split the email address to get the domain name
+        return eDomain !== domain // check if the domain name matches the one inside the email address
+          ? { emailDomain: true } // return in case there is not match
+          : null; // return null if there is a match
+      }
+      return null; // no error, since there was no input
+    };
   }
 
   ngOnDestroy(): void {
