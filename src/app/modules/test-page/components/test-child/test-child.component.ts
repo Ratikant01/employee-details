@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-test-child',
@@ -7,10 +7,21 @@ import {Component, OnInit} from '@angular/core';
 })
 export class TestChildComponent implements OnInit {
 
+  @Input()
+  title: string;
+  @Output()
+  clickCounterEvent = new EventEmitter<number>();
+  clickCounter: number;
+
   constructor() {
   }
 
   ngOnInit(): void {
+    this.clickCounter = 0;
   }
 
+  increaseClickCounter() {
+    this.clickCounter++;
+    this.clickCounterEvent.emit(this.clickCounter);
+  }
 }
